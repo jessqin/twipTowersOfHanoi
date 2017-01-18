@@ -8,8 +8,20 @@ public class Main {
         Scanner discIn = new Scanner(System.in);
         int discNum = discIn.nextInt();
 
-        TowersOfHanoi newTow = new TowersOfHanoi(discNum);
-        System.out.println(newTow.moveTower());
+        System.out.println("What will you call the first tower?");
+        Scanner towOneIn = new Scanner(System.in);
+        String towOne = towOneIn.next();
+
+        System.out.println("What will you call the second tower?");
+        Scanner towTwoIn = new Scanner(System.in);
+        String towTwo = towTwoIn.next();
+
+        System.out.println("What will you call the third tower?");
+        Scanner towThreeIn = new Scanner(System.in);
+        String towThree = towThreeIn.next();
+
+        TowersOfHanoi newTow = new TowersOfHanoi();
+        newTow.moveTower(discNum, towOne, towTwo, towThree);
 
 
     }

@@ -6,14 +6,18 @@ import java.*;
  */
 public class TowersOfHanoi {
     private int discs;
-    StringBuffer sbMoveTo = new StringBuffer("Move one disk from tower ");
+    private String towerOne;
+    private String towerTwo;
+    private String towerThree;
 
-    public TowersOfHanoi(int n)
+
+    public TowersOfHanoi()
     {
-        discs = n;
+
     }
-    public String moveTower()
+    public void moveTower(int discs, String towerOne, String towerTwo, String towerThree)
     {
+        StringBuffer sbMoveTo = new StringBuffer("Move one disk from tower ");
 
         if (discs > 10)
         {
@@ -21,16 +25,18 @@ public class TowersOfHanoi {
             IllegalThreadStateException e = new IllegalThreadStateException();
             throw e;
         }
-        if (discs == 1)
+        if (discs == 0)
         {
             sbMoveTo.append("1 to 3");
         }
         else
         {
-            discs
+            moveTower(discs - 1, towerOne, towerThree, towerTwo);
+            sbMoveTo.append(towerOne + " to " + towerThree);
+            moveTower(discs - 1, towerTwo, towerOne, towerThree);
         }
         String moveTo = sbMoveTo.toString();
-        return moveTo;
+        System.out.println(moveTo);
     }
 
 
