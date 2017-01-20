@@ -15,9 +15,8 @@ public class TowersOfHanoi {
     {
 
     }
-    public void moveTower(int discs, String towerOne, String towerTwo, String towerThree)
+    public static void moveTower(int discs, String towerOne, String towerTwo, String towerThree)
     {
-        StringBuffer sbMoveTo = new StringBuffer("Move one disk from tower ");
 
         if (discs > 10)
         {
@@ -25,18 +24,16 @@ public class TowersOfHanoi {
             IllegalThreadStateException e = new IllegalThreadStateException();
             throw e;
         }
-        if (discs == 0)
+        if (discs == 1)
         {
-            sbMoveTo.append("1 to 3");
+            System.out.println("Move one disk from tower " + towerOne + " to " + towerThree);
         }
         else
         {
             moveTower(discs - 1, towerOne, towerThree, towerTwo);
-            sbMoveTo.append(towerOne + " to " + towerThree);
+            System.out.println("Move one disk from tower " + towerOne + " to " + towerThree);
             moveTower(discs - 1, towerTwo, towerOne, towerThree);
         }
-        String moveTo = sbMoveTo.toString();
-        System.out.println(moveTo);
     }
 
 

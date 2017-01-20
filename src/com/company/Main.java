@@ -20,8 +20,7 @@ public class Main {
         Scanner towThreeIn = new Scanner(System.in);
         String towThree = towThreeIn.next();
 
-        TowersOfHanoi newTow = new TowersOfHanoi();
-        newTow.moveTower(discNum, towOne, towTwo, towThree);
+        TowersOfHanoi.moveTower(discNum, towOne, towTwo, towThree);
 
 
     }
