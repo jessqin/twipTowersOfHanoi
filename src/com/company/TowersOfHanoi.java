@@ -17,7 +17,7 @@ public class TowersOfHanoi {
     }
     public static void moveTower(int discs, String towerOne, String towerTwo, String towerThree)
     {
-
+        StringBuffer sb = new StringBuffer("Move one disk from tower ");
         if (discs > 10)
         {
             String s = "Please enter a smaller number";
@@ -26,12 +26,14 @@ public class TowersOfHanoi {
         }
         if (discs == 1)
         {
-            System.out.println("Move one disk from tower " + towerOne + " to " + towerThree);
+            sb.append(towerOne + " to " + towerThree);
+            System.out.println(sb.toString());
         }
         else
         {
             moveTower(discs - 1, towerOne, towerThree, towerTwo);
-            System.out.println("Move one disk from tower " + towerOne + " to " + towerThree);
+            sb.append(towerOne + " to " + towerThree);
+            System.out.println(sb.toString());
             moveTower(discs - 1, towerTwo, towerOne, towerThree);
         }
     }
